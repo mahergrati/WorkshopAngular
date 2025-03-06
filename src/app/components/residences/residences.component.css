@@ -1,0 +1,3 @@
+.available { color: green; font-weight: bold; }
+.construction { color: orange; font-weight: bold; }
+.sold { color: red; font-weight: bold; }

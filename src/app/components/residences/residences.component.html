@@ -1,0 +1,13 @@
+<div *ngFor="let residence of listResidences">
+    <h3>{{ residence.name }}</h3>
+    <img [src]="residence.image" alt="{{ residence.name }}" width="200">
+    <button (click)="showLocation(residence)">Show Location</button>
+    <p [ngClass]="{'available': residence.status === 'Disponible', 
+               'construction': residence.status === 'En Construction', 
+               'sold': residence.status === 'Vendu'}">
+        {{ residence.status }}
+    </p>
+    <button (click)="addToFavorites(residence)">Like ❤️</button>
+    <input type="text" placeholder="Rechercher par adresse" [(ngModel)]="searchItem" />
+</div>
+  
