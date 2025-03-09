@@ -9,5 +9,17 @@
     </p>
     <button (click)="addToFavorites(residence)">Like ❤️</button>
     <input type="text" placeholder="Rechercher par adresse" [(ngModel)]="searchItem" />
+    <div *ngFor="let residence of listResidences">
+        <h3>{{ residence.name }}</h3>
+        <button [routerLink]="['/residences', residence.id]">Détails</button>
+    </div>
+    <div *ngFor="let residence of listResidences">
+        <h3>{{ residence.name }}</h3>
+        <p>{{ residence.address }}</p>
+        
+        <!-- Lien vers les appartements de cette résidence -->
+        <a [routerLink]="['/residences', residence.id, 'apartments']">Appartements List</a>
+      </div>
+      
 </div>
   

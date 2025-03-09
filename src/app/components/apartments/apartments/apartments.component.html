@@ -1,0 +1,7 @@
+<h2>Liste des Appartements</h2>
+<button (click)="addApartment()">Ajouter un Appartement</button>
+<ul>
+  <li *ngFor="let apartment of apartments">
+    Appartement {{ apartment.apartNum }} - {{ apartment.category }} ({{ apartment.surface }}m²)
+  </li>
+</ul>
