@@ -13,6 +13,7 @@ import { AddResidenceComponent } from './components/residences/add-residence/add
 import { ApartmentsComponent } from './components/apartments/apartments/apartments.component';
 import { ApartmentsByResidenceComponent } from './components/apartments/apartments-by-residence/apartments-by-residence.component';
 import { AddApartmentComponent } from './components/apartments/add-apartment/add-apartment.component';
+import { ReactiveFormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,6 +31,7 @@ import { AddApartmentComponent } from './components/apartments/add-apartment/add
   imports: [
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
     RouterModule.forRoot([])
   ],
   providers: [],

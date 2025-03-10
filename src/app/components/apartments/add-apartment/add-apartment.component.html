@@ -1,1 +1,47 @@
-<p>add-apartment works!</p>
+<h2>Liste des Appartements</h2>
+
+<button (click)="onSubmit()">Ajouter un Appartement</button> 
+<ul>
+  <li *ngFor="let apartment of apartments">
+    Appartement {{ apartment.apartNum }} - {{ apartment.category }} ({{ apartment.surface }}m²)
+  </li>
+</ul>
+
+<form [formGroup]="apartForm" (ngSubmit)="onSubmit()">
+  <label>Residence ID:</label>
+  <input type="number" formControlName="ResidenceId">
+  <div *ngIf="apartForm.get('ResidenceId')?.invalid && apartForm.get('ResidenceId')?.touched">
+    Ce champ est obligatoire.
+  </div>
+
+  <label>Apartment Number:</label>
+  <input type="number" formControlName="apartNum">
+  <div *ngIf="apartForm.get('apartNum')?.invalid && apartForm.get('apartNum')?.touched">
+    Doit être un nombre.
+  </div>
+
+  <label>Floor Number:</label>
+  <input type="number" formControlName="floorNum">
+  <div *ngIf="apartForm.get('floorNum')?.invalid && apartForm.get('floorNum')?.touched">
+    Doit être un nombre.
+  </div>
+
+  <label>Terrace:</label>
+  <input type="checkbox" formControlName="terrace">
+
+  <label>Surface Terrace:</label>
+  <input type="number" formControlName="surfaceterrace" [disabled]="!apartForm.get('terrace')?.value">
+  <div *ngIf="apartForm.get('surfaceterrace')?.invalid && apartForm.get('surfaceterrace')?.touched">
+    Veuillez entrer une valeur valide.
+  </div>
+
+  <label>Category:</label>
+  <input type="text" formControlName="category">
+  <div *ngIf="apartForm.get('category')?.invalid && apartForm.get('category')?.touched">
+    Ce champ est obligatoire.
+  </div>
+  <form [formGroup]="apartForm" (ngSubmit)="onSubmit()">
+
+
+  <button type="submit" [disabled]="apartForm.invalid">Ajouter</button>
+</form>

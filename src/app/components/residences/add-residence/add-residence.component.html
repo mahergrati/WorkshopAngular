@@ -1,1 +1,29 @@
-<p>add-residence works!</p>
+<form [formGroup]="residenceForm">
+    <label>Nom:</label>
+    <input type="text" formControlName="name">
+    <div *ngIf="residenceForm.get('name')?.invalid && residenceForm.get('name')?.touched">
+      Le nom est obligatoire et doit contenir au moins 3 caractères.
+    </div>
+  
+    <label>Adresse:</label>
+    <input type="text" formControlName="address">
+    <div *ngIf="residenceForm.get('address')?.invalid && residenceForm.get('address')?.touched">
+      L'adresse est obligatoire.
+    </div>
+  
+    <label>Image (URL):</label>
+    <input type="text" formControlName="image">
+    <div *ngIf="residenceForm.get('image')?.invalid && residenceForm.get('image')?.touched">
+      Veuillez entrer une URL valide.
+    </div>
+  
+    <label>Status:</label>
+    <select formControlName="status">
+      <option>Disponible</option>
+      <option>En Construction</option>
+      <option>Vendu</option>
+    </select>
+  
+    <button type="submit" [disabled]="residenceForm.invalid">Créer Résidence</button>
+  </form>
+  
